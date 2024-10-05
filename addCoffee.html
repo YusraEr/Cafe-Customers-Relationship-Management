@@ -1,0 +1,162 @@
+<html>
+<head>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <style>
+        body {
+            background-color: #f8f9fa;
+        }
+        .sidebar {
+            width: 60px;
+            background-color: #f1f1f1;
+            height: 100vh;
+            position: fixed;
+            top: 0;
+            left: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding-top: 20px;
+        }
+        .sidebar i {
+            font-size: 24px;
+            margin-bottom: 20px;
+        }
+        .content {
+            margin-left: 80px;
+            padding: 20px;
+        }
+        .form-section {
+            background-color: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            position: relative;
+        }
+        .form-section h2 {
+            margin-bottom: 20px;
+        }
+        .form-section .form-group {
+            margin-bottom: 15px;
+        }
+        .form-section .form-group label {
+            font-weight: bold;
+        }
+        .form-section .form-group input,
+        .form-section .form-group textarea {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ced4da;
+            border-radius: 4px;
+            background-color: #e9ecef;
+        }
+        .form-section .form-group textarea {
+            resize: none;
+        }
+        .form-section .btn-group {
+            position: absolute;
+            bottom: 20px;
+            right: 20px;
+            display: flex;
+            gap: 10px;
+        }
+        .form-section .radio-group {
+            display: flex;
+            align-items: center;
+        }
+        .form-section .radio-group input {
+            margin-right: 5px;
+        }
+        .form-section .radio-group label {
+            margin-right: 15px;
+        }
+    </style>
+</head>
+<body>
+    <div class="sidebar">
+        <i class="fas fa-home"></i>
+        <i class="fas fa-user"></i>
+        <i class="fas fa-calendar"></i>
+        <i class="fas fa-cog"></i>
+        <i class="fas fa-sign-out-alt"></i>
+    </div>
+    <div class="content">
+        <div class="form-section">
+            <h2>Add new coffee blend</h2>
+            <form>
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label>Coffee type</label><br>
+                            <div class="radio-group">
+                                <input type="radio" name="coffeeType" id="beverage" value="Beverage">
+                                <label for="beverage">Beverage</label>
+                                <input type="radio" name="coffeeType" id="snacks" value="Snacks">
+                                <label for="snacks">Snacks</label>
+                                <input type="radio" name="coffeeType" id="other" value="Other">
+                                <label for="other">Other</label>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="blendName">Blend name</label>
+                            <input type="text" id="blendName" class="form-control">
+                        </div>
+                        <div class="form-group">
+                            <label for="category">Category</label>
+                            <input type="text" id="category" class="form-control">
+                        </div>
+                        <div class="form-group">
+                            <label for="itemCode">Item code</label>
+                            <input type="text" id="itemCode" class="form-control">
+                        </div>
+                        <div class="form-group">
+                            <label for="origin">Origin</label>
+                            <input type="text" id="origin" class="form-control">
+                        </div>
+                        <div class="form-group">
+                            <label for="taxRate">Tax rate</label>
+                            <input type="text" id="taxRate" class="form-control">
+                        </div>
+                        <div class="form-group">
+                            <label for="description">Description</label>
+                            <textarea id="description" class="form-control" rows="3"></textarea>
+                        </div>
+                        <div class="form-group">
+                            <label for="quantity">Quantity</label>
+                            <input type="text" id="quantity" class="form-control">
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <h4>Sales details</h4>
+                        <div class="form-group">
+                            <label for="pricePerCup">Price per cup</label>
+                            <input type="text" id="pricePerCup" class="form-control">
+                        </div>
+                        <div class="form-group">
+                            <label for="customer">Customer</label>
+                            <input type="text" id="customer" class="form-control">
+                        </div>
+                        <div class="form-group">
+                            <label for="salesTaxRate">Tax rate</label>
+                            <input type="text" id="salesTaxRate" class="form-control">
+                        </div>
+                        <h4>Purchase details</h4>
+                        <div class="form-group">
+                            <label for="costPricePer">Cost price per</label>
+                            <input type="text" id="costPricePer" class="form-control">
+                        </div>
+                        <div class="form-group">
+                            <label for="supplier">Supplier</label>
+                            <input type="text" id="supplier" class="form-control">
+                        </div>
+                    </div>
+                </div>
+                <div class="btn-group">
+                    <button type="submit" class="btn btn-dark">Add blend</button>
+                    <button type="button" class="btn btn-light">Cancel</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</body>
+</html>
