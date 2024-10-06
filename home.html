@@ -11,14 +11,14 @@
 </head>
 
 <body>
-    <div class="sidebar">
-        <i class="fas text-center mb-3 bg-black d-block fa-home">
+    <div class="container sidebar">
+        <i class="fas text-center mb-3 d-block fa-home text-white">
         </i>
-        <i class="fas text-center mb-3 bg-black d-block fa-bell">
+        <i class="fas text-center mb-3 d-block fa-bell text-white">
         </i>
-        <i class="fas text-center mb-3 bg-black d-block fa-user">
+        <i class="fas text-center mb-3 d-block fa-user text-white">
         </i>
-        <i class="fas text-center mb-3 bg-black d-block fa-calendar">
+        <i class="fas text-center mb-3 d-block fa-calendar text-white"></i>
         </i>
     </div>
     <div class="content">
@@ -39,61 +39,82 @@
                     </h5>
                     <span>
                         Select date range
-                        <i class="fas fa-caret-down">
-                        </i>
+                        <i class="fas fa-caret-down"></i>
                     </span>
+                    <div class="dropdown">
+                        <button class="btn btn-secondary dropdown-toggle" type="button" id="dateRangeDropdown"
+                            data-bs-toggle="dropdown" aria-expanded="false">
+                            Date Range
+                        </button>
+                        <ul class="dropdown-menu" aria-labelledby="dateRangeDropdown">
+                            <li><a class="dropdown-item" href="#" onclick="filterByDate('today')">Today</a></li>
+                            <li><a class="dropdown-item" href="#" onclick="filterByDate('this_week')">This Week</a></li>
+                            <li><a class="dropdown-item" href="#" onclick="filterByDate('this_month')">This Month</a>
+                            </li>
+                            <li><a class="dropdown-item" href="#" onclick="filterByDate('custom')">Custom</a></li>
+                        </ul>
+                    </div>
+                    <div id="customDateRange" style="display: none;">
+                        <input type="date" id="startDate" />
+                        <input type="date" id="endDate" />
+                        <button class="btn btn-primary" onclick="applyCustomDateRange()">Apply</button>
+                    </div>
+                    <script>
+                        function filterByDate(range) {
+                            if (range === 'custom') {
+                                document.getElementById('customDateRange').style.display = 'block';
+                            } else {
+                                document.getElementById('customDateRange').style.display = 'none';
+                                // Implement your date range filtering logic here
+                                console.log('Filtering by:', range);
+                            }
+                        }
+
+                        function applyCustomDateRange() {
+                            const startDate = document.getElementById('startDate').value;
+                            const endDate = document.getElementById('endDate').value;
+                            // Implement your custom date range filtering logic here
+                            console.log('Filtering from', startDate, 'to', endDate);
+                        }
+                    </script>
                 </div>
-                <div class="feedback-item">
-                    <img alt="Profile picture of the customer" height="50"
-                        src="https://storage.googleapis.com/a1aa/image/ixkGbQpWen0BBahyT4ObmJPoCC1XfwUVIyStD3sSzXSY76jTA.jpg"
-                        width="50" />
-                    <div class="feedback-content">
-                        <p>
-                            <strong>
-                                Customer Feedback
-                            </strong>
-                            on Order - 1001
-                        </p>
-                        <p>
-                            2h ago
-                        </p>
-                        <p>
-                            Excellent service, thank you
-                        </p>
-                        <div class="actions">
-                            <a href="#">
-                                Read
-                            </a>
-                            <a href="#">
-                                Respond
-                            </a>
+                <div class="card mb-3">
+                    <div class="row g-0">
+                        <div class="col-md-2">
+                            <img alt="Customer profile picture" class="img-fluid rounded-start" height="50"
+                                src="https://storage.googleapis.com/a1aa/image/ixkGbQpWen0BBahyT4ObmJPoCC1XfwUVIyStD3sSzXSY76jTA.jpg"
+                                width="50" />
+                        </div>
+                        <div class="col-md-10">
+                            <div class="card-body">
+                                <h5 class="card-title"><strong>Customer Feedback</strong> on Order - 1001</h5>
+                                <p class="card-text">2h ago</p>
+                                <p class="card-text">Excellent service, thank you</p>
+                                <div class="actions">
+                                    <a href="#" class="btn btn-primary btn-sm">Read</a>
+                                    <a href="#" class="btn btn-secondary btn-sm">Respond</a>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
-                <div class="feedback-item">
-                    <img alt="Profile picture of the customer" height="50"
-                        src="https://storage.googleapis.com/a1aa/image/ixkGbQpWen0BBahyT4ObmJPoCC1XfwUVIyStD3sSzXSY76jTA.jpg"
-                        width="50" />
-                    <div class="feedback-content">
-                        <p>
-                            <strong>
-                                John Doe
-                            </strong>
-                            on Order - 1002
-                        </p>
-                        <p>
-                            1h ago
-                        </p>
-                        <p>
-                            Great experience, will return
-                        </p>
-                        <div class="actions">
-                            <a href="#">
-                                Like
-                            </a>
-                            <a href="#">
-                                Reply
-                            </a>
+                <div class="card mb-3">
+                    <div class="row g-0">
+                        <div class="col-md-2">
+                            <img alt="Customer profile picture" class="img-fluid rounded-start" height="50"
+                                src="https://storage.googleapis.com/a1aa/image/ixkGbQpWen0BBahyT4ObmJPoCC1XfwUVIyStD3sSzXSY76jTA.jpg"
+                                width="50" />
+                        </div>
+                        <div class="col-md-10">
+                            <div class="card-body">
+                                <h5 class="card-title"><strong>John Doe</strong> on Order - 1002</h5>
+                                <p class="card-text">1h ago</p>
+                                <p class="card-text">Great experience, will return</p>
+                                <div class="actions">
+                                    <a href="#" class="btn btn-primary btn-sm">Like</a>
+                                    <a href="#" class="btn btn-secondary btn-sm">Reply</a>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>

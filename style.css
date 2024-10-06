@@ -44,7 +44,7 @@
 .sidebar {
     width: 60px;
     height: 100vh;
-    background-color: #f8f9fa;
+    background-color: #c0c0c0;
     position: fixed;
     top: 0;
     left: 0;
@@ -53,7 +53,7 @@
 }
 
 .sidebar i {
-    /* diplay: block; */
+    display: block;
     text-align: center;
     margin-bottom: 20px;
     font-size: 20px;
@@ -201,4 +201,13 @@ nav a {
 .rating-stars label:hover,
 .rating-stars label:hover~label {
     color: #f39c12;
+}
+footer {
+    background-color: #cccccc;
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    width: 1326px;
+    height: 70px;
 }
