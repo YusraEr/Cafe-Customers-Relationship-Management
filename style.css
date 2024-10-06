@@ -181,6 +181,7 @@ nav a {
 .rating-stars {
     display: flex;
     justify-content: space-between;
+    direction: rtl;
 }
 
 .rating-stars input {
@@ -192,6 +193,7 @@ nav a {
     color: #ddd;
     cursor: pointer;
     transition: color 0.2s;
+    direction: ltr;
 }
 
 .rating-stars input:checked~label {
