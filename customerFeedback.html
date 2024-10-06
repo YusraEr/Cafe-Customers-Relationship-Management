@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link crossorigin="anonymous" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" rel="stylesheet" />
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet" />
+    <title>Customer Feedback</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f8f9fa;
+        }
+
+        /* Sidebar Styling */
+        .sidebar {
+            background-color: #ffffff;
+            width: 10%;
+            height: 100vh;
+            position: fixed;
+            top: 0;
+            left: 0;
+            padding-top: 20px;
+            color: #000000;
+            box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+        }
+
+        .sidebar .nav-link {
+            color: #000000;
+            font-size: 1.2rem;
+            padding: 20px;
+            text-align: center;
+            display: block;
+        }
+
+        .sidebar .nav-link:hover {
+            background-color: #f8f9fa;
+            color: #000000;
+            transition: 0.3s;
+        }
+
+        .sidebar i {
+            font-size: 1.5rem;
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        /* Main content */
+        .content {
+            margin-left: 12%;
+            padding: 40px;
+            background-color: #fff;
+            min-height: 100vh;
+        }
+
+        .top-bar input[type="text"] {
+            width: 100%;
+            padding: 12px;
+            border-radius: 5px;
+            border: 1px solid #ced4da;
+        }
+
+        .profile .avatar {
+            width: 45px;
+            height: 45px;
+            background-color: #6c757d;
+            border-radius: 50%;
+            margin-left: 15px;
+        }
+
+        /* Customer Item */
+        .customer-item {
+            background-color: #f1f3f5;
+            padding: 15px;
+            border-radius: 50%;
+            width: 70px;
+            height: 70px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-bottom: 15px;
+            font-size: 0.85rem;
+            font-weight: 500;
+        }
+
+        /* Feedback Buttons */
+        .feedback-button {
+            padding: 12px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            width: 100%;
+            transition: background-color 0.3s;
+        }
+
+        .feedback-button:hover {
+            background-color: #0056b3;
+        }
+
+        .location-item {
+            background-color: #e9ecef;
+            padding: 20px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+            font-weight: 500;
+        }
+
+        .location-item small {
+            color: #6c757d;
+        }
+
+        .upgrade-button {
+            padding: 12px;
+            background-color: #28a745;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+
+        .upgrade-button:hover {
+            background-color: #218838;
+        }
+
+        /* Responsiveness */
+        @media (max-width: 768px) {
+            .sidebar {
+                width: 100%;
+                height: auto;
+                position: relative;
+                padding: 10px;
+            }
+
+            .content {
+                margin-left: 0;
+                padding: 20px;
+            }
+
+            .top-bar input[type="text"] {
+                width: 100%;
+                margin-bottom: 15px;
+            }
+
+            .customer-item {
+                margin-bottom: 20px;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .customer-item {
+                width: 60px;
+                height: 60px;
+                font-size: 0.8rem;
+            }
+
+            .feedback-button {
+                font-size: 0.9rem;
+            }
+
+            .location-item {
+                padding: 10px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container-fluid">
+        <div class="row">
+            <!-- Sidebar -->
+            <div class="sidebar">
+                <nav class="nav flex-column">
+                    <a class="nav-link" href="#"><i class="fas fa-home"></i></a>
+                    <a class="nav-link" href="#"><i class="fas fa-box"></i></a>
+                    <a class="nav-link" href="#"><i class="fas fa-user"></i></a>
+                    <a class="nav-link" href="#"><i class="fas fa-calendar"></i></a>
+                </nav>
+            </div>
+
+            <!-- Main content -->
+            <div class="col content">
+                <div class="row mb-4">
+                    <!-- Search and Profile -->
+                    <div class="col-md-8">
+                        <input type="text" class="form-control" placeholder="Search customer feedback and reviews">
+                    </div>
+                    <div class="col-md-4 d-flex justify-content-end align-items-center">
+                        <span>Customer</span>
+                        <div class="avatar ms-2"></div>
+                    </div>
+                </div>
+
+                <!-- Customer Items -->
+                <div class="row text-center mb-4">
+                    <div class="col-6 col-md-2 customer-item mx-auto">John Doe</div>
+                    <div class="col-6 col-md-2 customer-item mx-auto">Jane Smith</div>
+                    <div class="col-6 col-md-2 customer-item mx-auto">Alex Brown</div>
+                    <div class="col-6 col-md-2 customer-item mx-auto">Emily White</div>
+                    <div class="col-6 col-md-2 customer-item mx-auto">Michael Green</div>
+                    <div class="col-6 col-md-2 customer-item mx-auto">Sarah Black</div>
+                    <div class="col-6 col-md-2 customer-item mx-auto">Chris Taylor</div>
+                    <div class="col-6 col-md-2 customer-item mx-auto">Olivia Stone</div>
+                </div>
+
+                <!-- Feedback Buttons -->
+                <div class="row text-center my-4">
+                    <div class="col-12 col-md-4 mb-2">
+                        <button class="feedback-button">Submit</button>
+                    </div>
+                    <div class="col-12 col-md-4 mb-2">
+                        <button class="feedback-button">Review</button>
+                    </div>
+                    <div class="col-12 col-md-4 mb-2">
+                        <button class="feedback-button">Manage</button>
+                    </div>
+                </div>
+
+                <!-- Location Section -->
+                <div class="row text-center">
+                    <div class="col-6 col-md-3">
+                        <div class="location-item">Paris, France <br> <small>09:30</small></div>
+                    </div>
+                    <div class="col-6 col-md-3">
+                        <div class="location-item">Tokyo, Japan <br> <small>12:15</small></div>
+                    </div>
+                    <div class="col-6 col-md-3">
+                        <div class="location-item">New York, USA <br> <small>08:45</small></div>
+                    </div>
+                    <div class="col-6 col-md-3">
+                        <div class="location-item">London, UK <br> <small>10:30</small></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
