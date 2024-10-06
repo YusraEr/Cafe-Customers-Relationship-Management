@@ -53,7 +53,7 @@
 }
 
 .sidebar i {
-    display: block;
+    /* diplay: block; */
     text-align: center;
     margin-bottom: 20px;
     font-size: 20px;
@@ -159,4 +159,46 @@
     background-color: #007bff;
     color: white;
     border-radius: 5px;
+}
+
+nav a {
+    text-decoration: none;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+
+
+.form-group select,
+.form-group textarea,
+.form-group input[type="checkbox"],
+.form-group input[type="submit"] {
+    padding: 10px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+}
+
+.rating-stars {
+    display: flex;
+    justify-content: space-between;
+}
+
+.rating-stars input {
+    display: none;
+}
+
+.rating-stars label {
+    font-size: 30px;
+    color: #ddd;
+    cursor: pointer;
+    transition: color 0.2s;
+}
+
+.rating-stars input:checked~label {
+    color: #f39c12;
+}
+
+.rating-stars label:hover,
+.rating-stars label:hover~label {
+    color: #f39c12;
 }
