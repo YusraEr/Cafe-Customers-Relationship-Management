@@ -1,4 +1,4 @@
-*{
+* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
@@ -29,7 +29,7 @@
     -o-border-radius: 15px !important;
 }
 
-#forPass{
+#forPass {
     cursor: pointer;
     font-size: small;
 }
@@ -38,4 +38,125 @@
     border-radius: 15px !important;
     background-color: #111111 !important;
     color: #ffffff !important;
+}
+
+/* home punya mau di satukan, pake bootstrap */
+.sidebar {
+    width: 60px;
+    height: 100vh;
+    background-color: #f8f9fa;
+    position: fixed;
+    top: 0;
+    left: 0;
+    padding-top: 20px;
+    border-right: 1px solid #e0e0e0;
+}
+
+.sidebar i {
+    display: block;
+    text-align: center;
+    margin-bottom: 20px;
+    font-size: 20px;
+    color: #6c757d;
+}
+
+.content {
+    margin-left: 80px;
+    padding: 20px;
+}
+
+.search-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.search-bar input {
+    width: 70%;
+    padding: 10px;
+    border: 1px solid #ced4da;
+    border-radius: 5px;
+}
+
+.search-bar button {
+    padding: 10px 20px;
+    border: none;
+    background-color: #007bff;
+    color: white;
+    border-radius: 5px;
+}
+
+.notifications {
+    display: flex;
+    justify-content: space-between;
+}
+
+.notifications .feedback,
+.notifications .filter-options {
+    background-color: white;
+    border: 1px solid #e0e0e0;
+    border-radius: 10px;
+    padding: 20px;
+}
+
+.notifications .feedback {
+    width: 65%;
+}
+
+.notifications .filter-options {
+    width: 30%;
+}
+
+.feedback .feedback-item {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.feedback .feedback-item img {
+    border-radius: 50%;
+    margin-right: 10px;
+}
+
+.feedback .feedback-item .feedback-content {
+    flex-grow: 1;
+}
+
+.feedback .feedback-item .feedback-content p {
+    margin: 0;
+}
+
+.feedback .feedback-item .feedback-content .actions {
+    margin-top: 5px;
+}
+
+.feedback .feedback-item .feedback-content .actions a {
+    margin-right: 10px;
+    color: #007bff;
+    text-decoration: none;
+}
+
+.filter-options .filter-item {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.filter-options .filter-item input {
+    margin-right: 10px;
+}
+
+.filter-options .filter-actions {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+}
+
+.filter-options .filter-actions button {
+    padding: 5px 10px;
+    border: none;
+    background-color: #007bff;
+    color: white;
+    border-radius: 5px;
 }
