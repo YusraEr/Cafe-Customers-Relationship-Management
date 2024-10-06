@@ -6,72 +6,19 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Value Feedback Form</title>
     <link rel="stylesheet" href="style.css">
+    <link crossorigin="anonymous" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" rel="stylesheet" />
+
     <style>
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #f4f4f4;
-            margin: 0;
-            padding: 0;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            flex-direction: column;
-            height: 100vh;
-            padding-top: 60px;
-        }
-
-        nav {
-            background-color: #000000;
-            position: fixed;
-            top: 0;
-            width: 100%;
-            padding: 10px;
-            z-index: 100;
-            text-align: center;
-        }
-
         nav a {
-            color: white;
             text-decoration: none;
-            padding: 10px 20px;
-            background-color: #000000;
             transition: background-color 0.3s ease, transform 0.3s ease;
-        }
-
-        nav a:hover {
-            background-color: #6d0e0e;
-            color: #ffffff;
-            transform: scale(1.1);
-        }
-
-        .feedback-form {
-            background-color: #fff;
-            border-radius: 16px;
-            box-shadow: 0 2px 8px #0000001a;
-            padding: 30px;
-            width: 600px;
-            margin-bottom: 20px;
-        }
-
-        h2 {
-            text-align: center;
-            margin-bottom: 20px;
-        }
-
-        .form-group {
-            margin-bottom: 15px;
-        }
-
-        .form-group label {
-            display: block;
-            margin-bottom: 5px;
         }
 
         .form-group select,
         .form-group textarea,
         .form-group input[type="checkbox"],
         .form-group input[type="submit"] {
-            width: 100%;
             padding: 10px;
             margin-bottom: 10px;
             border-radius: 5px;
@@ -103,28 +50,6 @@
             color: #f39c12;
         }
 
-        .additional-services {
-            display: block;
-        }
-
-        .additional-services label {
-            display: inline-block;
-            margin-right: 1px;
-        }
-
-        .submit-btn {
-            background-color: black;
-            color: white;
-            border: none;
-            cursor: pointer;
-            padding: 15px;
-            font-size: 16px;
-            width: 100%;
-            display: block;
-            margin: 20px 0;
-            text-align: center;
-            border-radius: 15px;
-        }
 
         footer {
             background-color: #cccccc;
@@ -135,45 +60,29 @@
             width: 1326px;
             height: 70px;
         }
-
-        .footer-container {
-            max-width: 600px;
-            margin: 0 auto;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .left-side {
-            text-align: left;
-        }
-
-        .right-side {
-            text-align: right;
-        }
     </style>
 </head>
 
-<body>
-
-    <nav>
-        <a href="#hero"><b>Home</b></a>
-        <a href="#about"><b>About</b></a>
-        <a href="#contact"><b>Contact</b></a>
+<body class="m-0 p-0 bg-light d-inline-flex justify-content-center align-items-center pt-5 flex-column gap-3">
+    <nav
+        class="container-fluid bg-black fixed-top w-100 align-items-center text-center justify-content-center px-4 py-2">
+        <a class="p-2 bg-black text-light " href="#hero"><b>Home</b></a>
+        <a class="p-2 bg-black text-light " href="#about"><b>About</b></a>
+        <a class="p-2 bg-black text-light " href="#contact"><b>Contact</b></a>
     </nav>
 
-    <div class="feedback-form">
-        <h2>We Value Your Feedback</h2>
-        <div class="form-group">
-            <label for="category">Select Feedback Category</label>
-            <select id="category">
+    <div class="container shadow rounded-5 m-5 p-5 w-50 bg-white gap-5">
+        <h2 class="fw-bold pb-4 text-center">We Value Your Feedback</h2>
+        <div class="form-group w-100">
+            <label class="d-block mb-3" for="category">Select Feedback Category</label>
+            <select class="d-block w-100" id="category">
                 <option value="service">Service</option>
                 <option value="product">Product</option>
                 <option value="support">Support</option>
             </select>
         </div>
 
-        <div class="form-group rating-stars">
+        <div class="form-group rating-stars justify-content-evenly">
             <input type="radio" id="star1" name="rating" value="1">
             <label for="star1">★</label>
 
@@ -190,30 +99,27 @@
 
         </div>
 
-        <div class="form-group additional-services">
+        <div class="form-group d-block w-100 additional-services">
             <label>Additional Services Used</label>
-            <div>
-                <label><input type="checkbox" name="services" value="takeaway"> Takeaway</label>
-                <label><input type="checkbox" name="services" value="delivery"> Delivery</label>
+            <div class="container gap-5 justify-content-evenly text-start">
+                <label class="pe-4"><input type="checkbox" name="services" value="takeaway"> Takeaway</label>
+                <label class="pe-4"><input type="checkbox" name="services" value="delivery"> Delivery</label>
             </div>
         </div>
 
         <div class="form-group">
             <label for="comments">Comments</label>
-            <textarea id="comments" rows="4" placeholder="Tell us about your experience..."></textarea>
+            <textarea class="w-100 d-block" id="comments" rows="4"
+                placeholder="Tell us about your experience..."></textarea>
         </div>
 
-        <input type="submit" value="Submit Feedback" class="submit-btn" onclick="submitFeedback()">
+        <button type="submit" value="Submit Feedback" class="btn btn-primary btn-block w-100 py-2"
+            onclick="submitFeedback()">Submit</button>
     </div>
 
     <footer class="justify-content-around">
-        <div class="footer-container">
-            <div class="container text-start">
-                <p>Kupliq Cafe </p>
-            </div>
-            <div class="container text-end">
-                <p>-&copy; 2024 Feedback Form</p>
-            </div>
+        <div class="container text-center">
+            <p>Kupliq Cafe &copy; 2024 Feedback Form</p>
         </div>
     </footer>
 
