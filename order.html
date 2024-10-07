@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <title>Kupliq Cafe - Order</title>
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #f8f9fa;
+        }
+
+        .menu-img {
+            width: 100%;
+            height: auto;
+            margin-bottom: 30px;
+            border-radius: 10px;
+            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.3);
+        }
+
+        .form-section {
+            padding: 20px;
+            background-color: #ffffff;
+            border-radius: 10px;
+            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .btn-submit {
+            background-color: #6f4e37;
+            color: #fff;
+            font-size: 18px;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+
+        .btn-submit:hover {
+            background-color: #5b3e2e;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container my-5">
+        <h2 class="text-center mb-4">Order Your Favorite Items</h2>
+        
+        <!-- Menu Image -->
+        <div class="text-center">
+            <img src="img/menu.jpeg" alt="Kupliq Cafe Menu" class="menu-img">
+        </div>
+
+        <!-- Order Form -->
+        <div class="form-section">
+            <form id="orderForm">
+                <div class="mb-3">
+                    <label for="customerName" class="form-label">Your Name</label>
+                    <input type="text" class="form-control" id="customerName" placeholder="Enter your name" required>
+                </div>
+
+                <div class="mb-3">
+                    <label for="coffeeAmount" class="form-label">How many coffee drinks?</label>
+                    <input type="number" class="form-control" id="coffeeAmount" placeholder="Number of coffee drinks" required>
+                </div>
+
+                <div class="mb-3">
+                    <label for="coffeeName" class="form-label">Name of coffee drink</label>
+                    <input type="text" class="form-control" id="coffeeName" placeholder="Enter name of coffee drink" required>
+                </div>
+
+                <div class="mb-3">
+                    <label for="nonCoffeeAmount" class="form-label">How many non-coffee drinks?</label>
+                    <input type="number" class="form-control" id="nonCoffeeAmount" placeholder="Number of non-coffee drinks" required>
+                </div>
+
+                <div class="mb-3">
+                    <label for="noncoffeeName" class="form-label">Name of non-coffee drink</label>
+                    <input type="text" class="form-control" id="noncoffeeName" placeholder="Enter name of non-coffee drink" required>
+                </div>
+
+                <div class="mb-3">
+                    <label for="foodAmount" class="form-label">How many food/snacks?</label>
+                    <input type="number" class="form-control" id="foodAmount" placeholder="Number of food or snacks" required>
+                </div>
+
+                <div class="mb-3">
+                    <label for="foodName" class="form-label">Name of food/snacks</label>
+                    <input type="text" class="form-control" id="foodName" placeholder="Enter name of food/snacks" required>
+                </div>
+
+                <button type="submit" class="btn-submit w-100 mt-4">Submit Order</button>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        document.getElementById('orderForm').addEventListener('submit', function (event) {
+            event.preventDefault();
+            
+            // Get form values
+            const customerName = encodeURIComponent(document.getElementById('customerName').value);
+            const coffeeAmount = encodeURIComponent(document.getElementById('coffeeAmount').value);
+            const nonCoffeeAmount = encodeURIComponent(document.getElementById('nonCoffeeAmount').value);
+            const foodAmount = encodeURIComponent(document.getElementById('foodAmount').value);
+            const coffeeName = encodeURIComponent(document.getElementById('coffeeName').value);
+            const noncoffeeName = encodeURIComponent(document.getElementById('noncoffeeName').value);
+            const foodName = encodeURIComponent(document.getElementById('foodName').value);
+    
+            // Prepare message for WhatsApp (properly encoded)
+            const message = `Pesanan dari ${customerName}:%0A- Coffee: ${coffeeAmount} ${coffeeName}%0A- Non-coffee: ${nonCoffeeAmount} ${noncoffeeName}%0A- Food/snacks: ${foodAmount} ${foodName}`;
+    
+            // WhatsApp link with your number
+            const whatsappLink = `https://wa.me/6281253427113?text=${message}`;
+    
+            // Redirect to WhatsApp
+            window.open(whatsappLink, '_blank');
+    
+            // Alert user and redirect to home after submission
+            alert('Pesanan Anda telah diterima dan dikirim ke WhatsApp kasir.');
+            window.location.href = "index.html"; // Ganti dengan halaman home Anda
+        });
+    </script>
+    
+
+</body>
+
+</html>

@@ -5,9 +5,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login Page</title>
-    <link rel="stylesheet" href="style.css">
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
-
+    <link rel="stylesheet" href="style.css">
 </head>
 
 <body id="login">
@@ -18,29 +17,42 @@
             <div class="col-md-6 right-side">
                 <div class="container p-5 m-5">
                     <h2 class="card-title text-center fw-bold">Login</h2>
-                    <form>
+                    <form id="loginForm">
                         <div class="form-group h-5 p5">
-                            <label for="email ">Email address</label>
-                            <input type="email" class="form-control input-box py-4" id="email" placeholder="Enter email">
+                            <label for="email">Email address</label>
+                            <input type="email" class="form-control input-box py-4" id="email" placeholder="Enter email" required>
                         </div>
                         <div class="form-group">
                             <label for="password">Password</label>
-                            <input type="password" class="form-control input-box py-4" id="password" placeholder="Password">
+                            <input type="password" class="form-control input-box py-4" id="password" placeholder="Password" required>
                         </div>
-                        <button id="loginBtn" class="btn btn-primary btn-block py-2" onclick="initializeLoginPage()">Login</button>
-                        <a id="forPass" class="pt-1">Forgot your password?</a>
+                        <button id="loginBtn" class="btn btn-primary btn-block py-2">Login</button>
                     </form>
+                    <p class="text-center pt-2">Don't have an account? <a href="register.html">Register here</a></p>
                 </div>
             </div>
         </div>
     </div>
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <script src="cafeScript.js"></script>
 
+    <script>
+        document.getElementById('loginForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const email = document.getElementById('email').value;
+            const password = document.getElementById('password').value;
+            
+            // Check if user exists in localStorage
+            const users = JSON.parse(localStorage.getItem('users')) || [];
+            const user = users.find(u => u.email === email && u.password === password);
+            
+            if (user) {
+                localStorage.setItem('currentUser', JSON.stringify(user));
+                alert('Login successful!');
+                window.location.href = 'Home.html'; // Redirect to Home.html instead of sceneFeedback.html
+            } else {
+                alert('Invalid email or password');
+            }
+        });
+    </script>
 </body>
 
 </html>
