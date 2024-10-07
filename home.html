@@ -11,15 +11,13 @@
 </head>
 
 <body>
-    <div class="container sidebar">
-        <i class="fas text-center mb-3 d-block fa-home text-white">
-        </i>
-        <i class="fas text-center mb-3 d-block fa-bell text-white">
-        </i>
-        <i class="fas text-center mb-3 d-block fa-user text-white">
-        </i>
-        <i class="fas text-center mb-3 d-block fa-calendar text-white"></i>
-        </i>
+    <div class="sidebar">
+        <nav class="nav flex-column">
+            <a class="nav-link" href="home.html"><i class="fas fa-home"></i></a>
+            <a class="nav-link" href="#"><i class="fas fa-box"></i></a>
+            <a class="nav-link" href="#"><i class="fas fa-user"></i></a>
+            <a class="nav-link" href="statistic.html"><i class="fas fa-calendar"></i></a>
+        </nav>
     </div>
     <div class="content">
         <div class="search-bar">
@@ -37,10 +35,6 @@
                     <h5>
                         Feedback
                     </h5>
-                    <span>
-                        Select date range
-                        <i class="fas fa-caret-down"></i>
-                    </span>
                     <div class="dropdown">
                         <button class="btn btn-secondary dropdown-toggle" type="button" id="dateRangeDropdown"
                             data-bs-toggle="dropdown" aria-expanded="false">
@@ -69,7 +63,6 @@
                                 console.log('Filtering by:', range);
                             }
                         }
-
                         function applyCustomDateRange() {
                             const startDate = document.getElementById('startDate').value;
                             const endDate = document.getElementById('endDate').value;
@@ -78,14 +71,13 @@
                         }
                     </script>
                 </div>
-                <div class="card mb-3">
+                <div class="card mb-3 w-100">
                     <div class="row g-0">
-                        <div class="col-md-2">
-                            <img alt="Customer profile picture" class="img-fluid rounded-start" height="50"
-                                src="https://storage.googleapis.com/a1aa/image/ixkGbQpWen0BBahyT4ObmJPoCC1XfwUVIyStD3sSzXSY76jTA.jpg"
-                                width="50" />
+                        <div class="col-2">
+                            <img alt="Customer profile picture" class="img-fluid rounded-start object-fit-cover"
+                                src="https://storage.googleapis.com/a1aa/image/ixkGbQpWen0BBahyT4ObmJPoCC1XfwUVIyStD3sSzXSY76jTA.jpg"/>
                         </div>
-                        <div class="col-md-10">
+                        <div class="col-10">
                             <div class="card-body">
                                 <h5 class="card-title"><strong>Customer Feedback</strong> on Order - 1001</h5>
                                 <p class="card-text">2h ago</p>
@@ -98,21 +90,20 @@
                         </div>
                     </div>
                 </div>
-                <div class="card mb-3">
+                <div class="card mb-3 w-100">
                     <div class="row g-0">
-                        <div class="col-md-2">
-                            <img alt="Customer profile picture" class="img-fluid rounded-start" height="50"
-                                src="https://storage.googleapis.com/a1aa/image/ixkGbQpWen0BBahyT4ObmJPoCC1XfwUVIyStD3sSzXSY76jTA.jpg"
-                                width="50" />
+                        <div class="col-2">
+                            <img alt="Customer profile picture" class="img-fluid rounded-start object-fit-cover"
+                                src="https://storage.googleapis.com/a1aa/image/ixkGbQpWen0BBahyT4ObmJPoCC1XfwUVIyStD3sSzXSY76jTA.jpg"/>
                         </div>
-                        <div class="col-md-10">
+                        <div class="col-10">
                             <div class="card-body">
                                 <h5 class="card-title"><strong>John Doe</strong> on Order - 1002</h5>
                                 <p class="card-text">1h ago</p>
                                 <p class="card-text">Great experience, will return</p>
                                 <div class="actions">
-                                    <a href="#" class="btn btn-primary btn-sm">Like</a>
-                                    <a href="#" class="btn btn-secondary btn-sm">Reply</a>
+                                    <a href="#" class="btn btn-primary btn-sm">Read</a>
+                                    <a href="#" class="btn btn-secondary btn-sm">Respond</a>
                                 </div>
                             </div>
                         </div>

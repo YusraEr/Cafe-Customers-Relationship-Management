@@ -1,10 +1,12 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
     font-family: Poppins, sans-serif;
 }
+
 .left-side {
     background-image: url('img/cofee.jpg');
     background-size: cover;
@@ -41,24 +43,6 @@
 }
 
 /* home punya mau di satukan, pake bootstrap */
-.sidebar {
-    width: 60px;
-    height: 100vh;
-    background-color: #c0c0c0;
-    position: fixed;
-    top: 0;
-    left: 0;
-    padding-top: 20px;
-    border-right: 1px solid #e0e0e0;
-}
-
-.sidebar i {
-    display: block;
-    text-align: center;
-    margin-bottom: 20px;
-    font-size: 20px;
-    color: #6c757d;
-}
 
 .content {
     margin-left: 80px;
@@ -204,6 +188,7 @@ nav a {
 .rating-stars label:hover~label {
     color: #f39c12;
 }
+
 footer {
     background-color: #cccccc;
     padding: 20px;
@@ -212,4 +197,157 @@ footer {
     align-items: baseline;
     width: 1326px;
     height: 70px;
+}
+
+/* Sidebar Styling */
+.sidebar {
+    background-color: white;
+    width: 10%;
+    height: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+    padding-top: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.sidebar .nav-link {
+    color: black;
+    font-size: 1.5rem;
+    padding: 15px;
+    text-align: center;
+    display: block;
+}
+
+.sidebar .nav-link:hover {
+    background-color: #f0f0f0;
+    color: black;
+    transition: 0.3s;
+}
+
+.sidebar i {
+    font-size: 1.8rem;
+}
+
+/* Main content */
+.content {
+    margin-left: 12%;
+    padding: 20px;
+}
+
+.profile-settings {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+.card {
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    width: 48%;
+    margin-bottom: 20px;
+}
+
+h2 {
+    font-size: 1.5rem;
+    margin-bottom: 20px;
+}
+
+.user-details p {
+    margin: 8px 0;
+}
+
+.upload-section, .verification-section {
+    font-size: 0.9rem;
+}
+
+.file-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 8px 0;
+    border-bottom: 1px solid #e0e0e0;
+}
+
+.file-item:last-child {
+    border-bottom: none;
+}
+
+.btn-upload {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    text-align: center;
+    margin-top: 20px;
+    font-size: 0.9rem;
+}
+
+@media(max-width: 768px) {
+    .card {
+        width: 100%;
+    }
+
+    .sidebar {
+        width: 15%;
+    }
+
+    .content {
+        margin-left: 17%;
+    }
+}
+
+@media(max-width: 576px) {
+    .sidebar {
+        width: 20%;
+    }
+
+    .content {
+        margin-left: 22%;
+    }
+}
+
+.navbar {
+    background-color: #000;
+}
+
+.navbar-brand {
+    color: #fff;
+}
+
+.navbar input[type="text"] {
+    width: 200px;
+}
+
+.card-header {
+    background-color: #f8f9fa;
+    border-bottom: none;
+}
+
+.card-body {
+    background-color: #fff;
+}
+
+.interactive-ui .btn {
+    width: 60px;
+    height: 60px;
+    margin: 5px;
+    font-size: 24px;
+}
+.footer {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    background-color: #fff;
+    padding: 10px;
+    text-align: center;
+    border-top: 1px solid #dee2e6;
 }
