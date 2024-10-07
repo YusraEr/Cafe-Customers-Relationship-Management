@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link crossorigin="anonymous" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" rel="stylesheet" />
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="style.css">
+    <title>Customer Feedback Management System</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            background-color: #f8f9fa;
+        }
+
+        .sidebar {
+            background-color: #343a40;
+            width: 15%;
+            height: 100vh;
+            position: fixed;
+            top: 0;
+            left: 0;
+            color: white;
+            box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+        }
+
+        .sidebar .nav-link {
+            color: #ffffff;
+            font-size: 1.2rem;
+            padding: 15px;
+            display: block;
+            text-align: center;
+        }
+
+        .sidebar .nav-link:hover,
+        .sidebar .nav-link.active {
+            background-color: #007bff;
+            color: white;
+            transition: 0.3s;
+        }
+
+        .sidebar i {
+            font-size: 1.5rem;
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        .content {
+            margin-left: 17%;
+            padding: 40px;
+            background-color: #ffffff;
+            min-height: 100vh;
+        }
+
+        .feedback-form,
+        .feedback-history {
+            display: none;
+        }
+
+        .form-group label {
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+
+        .rating-stars input[type="radio"] {
+            display: none;
+        }
+
+        .rating-stars label {
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: #ccc;
+        }
+
+        .rating-stars input[type="radio"]:checked ~ label {
+            color: #ffc107;
+        }
+
+        footer {
+            padding: 15px 0;
+            background-color: #343a40;
+            color: white;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+        }
+
+        @media (max-width: 768px) {
+            .sidebar {
+                width: 100%;
+                height: auto;
+                position: relative;
+            }
+
+            .content {
+                margin-left: 0;
+                padding: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="sidebar">
+                <nav class="nav flex-column">
+                    <a class="nav-link" href="#" onclick="showSection('customers')"><i class="fas fa-users"></i> Customers</a>
+                    <a class="nav-link" href="#" onclick="showSection('feedback')"><i class="fas fa-comment"></i> Feedback</a>
+                    <a class="nav-link" href="#" onclick="showSection('history')"><i class="fas fa-history"></i> History</a>
+                    <a class="nav-link" href="Home.html"><i class="fas fa-sign-out-alt"></i> Home</a>
+                </nav>
+            </div>
+
+            <div class="col content">
+                <h1 class="mb-4">Customer Feedback Management</h1>
+
+                <div id="customers-section">
+                    <input type="text" id="searchInput" class="form-control mb-4" placeholder="Search customers">
+                    <div id="customerList" class="row text-center mb-4"></div>
+                </div>
+
+                <div id="feedback-section" class="feedback-form">
+                    <div class="container shadow rounded-5 m-5 p-5 w-50 bg-white gap-5">
+                        <h2 class="fw-bold pb-4 text-center">We Value Your Feedback</h2>
+
+                        <div class="form-group w-100 mb-4">
+                            <label for="userEmail" class="d-block">Your Email</label>
+                            <input type="email" id="userEmail" class="form-control" required>
+                        </div>
+
+                        <div class="form-group w-100">
+                            <label class="d-block mb-3" for="category">Select Feedback Category</label>
+                            <select class="d-block w-100" id="category" required>
+                                <option value="Service">Service</option>
+                                <option value="Product">Product</option>
+                                <option value="Support">Support</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group rating-stars justify-content-evenly">
+                            <input type="radio" id="star1" name="rating" value="1" required>
+                            <label for="star1">★</label>
+                            <input type="radio" id="star2" name="rating" value="2">
+                            <label for="star2">★</label>
+                            <input type="radio" id="star3" name="rating" value="3">
+                            <label for="star3">★</label>
+                            <input type="radio" id="star4" name="rating" value="4">
+                            <label for="star4">★</label>
+                            <input type="radio" id="star5" name="rating" value="5">
+                            <label for="star5">★</label>
+                        </div>
+
+                        <div class="form-group d-block w-100 additional-services">
+                            <label>Additional Services Used</label>
+                            <div class="container gap-5 justify-content-evenly text-start">
+                                <label class="pe-4"><input type="checkbox" id="takeaway"> Takeaway</label>
+                                <label class="pe-4"><input type="checkbox" id="delivery"> Delivery</label>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="comments">Comments</label>
+                            <textarea class="form-control" id="comments" rows="4" placeholder="Tell us about your experience..."></textarea>
+                        </div>
+
+                        <button type="submit" class="btn btn-primary btn-block w-100 py-2 mt-3" onclick="submitFeedback()">Submit</button>
+                    </div>
+                </div>
+
+                <div id="history-section" class="feedback-history">
+                    <h2>Feedback History</h2>
+                    <div id="feedbackList"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer class="justify-content-around">
+        <div class="container text-center">
+            <p>Kupliq Cafe &copy; 2024 Feedback Form</p>
+        </div>
+    </footer>
+
+    <script>
+        // Check if user is logged in
+        document.addEventListener('DOMContentLoaded', function() {
+            const currentUser = JSON.parse(localStorage.getItem('currentUser'));
+            if (!currentUser) {
+                alert('Please login first');
+                window.location.href = 'login.html';
+            } else {
+                document.getElementById('userEmail').value = currentUser.email;
+            }
+        });
+
+        function showSection(sectionId) {
+            document.getElementById('customers-section').style.display = 'none';
+            document.getElementById('feedback-section').style.display = 'none';
+            document.getElementById('history-section').style.display = 'none';
+            document.getElementById(sectionId + '-section').style.display = 'block';
+
+            if (sectionId === 'history') {
+                displayFeedbackHistory();
+            }
+        }
+
+        function submitFeedback() {
+            const feedback = {
+                email: document.getElementById('userEmail').value,
+                category: document.getElementById('category').value,
+                rating: document.querySelector('input[name="rating"]:checked').value,
+                takeaway: document.getElementById('takeaway').checked,
+                delivery: document.getElementById('delivery').checked,
+                comments: document.getElementById('comments').value,
+                date: new Date().toISOString()
+            };
+
+            // Get existing feedback or initialize empty array
+            const feedbackHistory = JSON.parse(localStorage.getItem('feedbackHistory')) || [];
+            feedbackHistory.push(feedback);
+            localStorage.setItem('feedbackHistory', JSON.stringify(feedbackHistory));
+
+            alert('Feedback submitted successfully!');
+            document.getElementById('feedbackForm').reset();
+        }
+
+        function displayFeedbackHistory() {
+            const feedbackHistory = JSON.parse(localStorage.getItem('feedbackHistory')) || [];
+            const feedbackList = document.getElementById('feedbackList');
+            feedbackList.innerHTML = '';
+
+            feedbackHistory.forEach((feedback, index) => {
+                const feedbackItem = document.createElement('div');
+                feedbackItem.innerHTML = `
+                    <h3>Feedback #${index + 1}</h3>
+                    <p><strong>Email:</strong> ${feedback.email}</p>
+                    <p><strong>Category:</strong> ${feedback.category}</p>
+                    <p><strong>Rating:</strong> ${feedback.rating}</p>
+                    <p><strong>Additional Services:</strong> ${feedback.takeaway ? 'Takeaway ' : ''}${feedback.delivery ? 'Delivery ' : ''}</p>
+                    <p><strong>Comments:</strong> ${feedback.comments}</p>
+                    <p><strong>Date:</strong> ${new Date(feedback.date).toLocaleString()}</p>
+                    <hr>
+                `;
+                feedbackList.appendChild(feedbackItem);
+            });
+        }
+    </script>
+</body>
+</html>

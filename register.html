@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register Page</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            background-color: #f8f9fa;
+        }
+        .left-side {
+            background-image: url('img/kupliqhome.jpeg'); /* Ubah dengan URL gambar latar belakang yang diinginkan */
+            background-size: cover;
+            background-position: center;
+        }
+        .right-side {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .input-box {
+            padding: 10px;
+            border-radius: 5px;
+        }
+        #register {
+            height: 100vh;
+        }
+    </style>
+</head>
+<body id="register">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-6 left-side">
+            </div>
+            <div class="col-md-6 right-side">
+                <div class="container p-5 m-5">
+                    <h2 class="card-title text-center fw-bold">Register</h2>
+                    <form id="registerForm">
+                        <div class="form-group">
+                            <label for="name">Full Name</label>
+                            <input type="text" class="form-control input-box py-4" id="name" placeholder="Enter full name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email address</label>
+                            <input type="email" class="form-control input-box py-4" id="email" placeholder="Enter email" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="password">Password</label>
+                            <input type="password" class="form-control input-box py-4" id="password" placeholder="Enter password" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="confirmPassword">Confirm Password</label>
+                            <input type="password" class="form-control input-box py-4" id="confirmPassword" placeholder="Confirm password" required>
+                        </div>
+                        <button id="registerBtn" class="btn btn-primary btn-block py-2" type="submit">Register</button>
+                        <p class="text-center pt-2">Already have an account? <a href="login.html">Login here</a></p>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.getElementById('registerForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            const password = document.getElementById('password').value;
+            const confirmPassword = document.getElementById('confirmPassword').value;
+            
+            // Get existing users or initialize empty array
+            const users = JSON.parse(localStorage.getItem('users')) || [];
+            
+            // Check if user already exists
+            if (users.some(user => user.email === email)) {
+                alert('User with this email already exists');
+                return;
+            }
+
+            // Check if passwords match
+            if (password !== confirmPassword) {
+                alert('Passwords do not match');
+                return;
+            }
+
+            // Add new user
+            users.push({ name, email, password });
+            
+            // Save updated users array
+            localStorage.setItem('users', JSON.stringify(users));
+            
+            alert('Registration successful! Please login.');
+            window.location.href = 'login.html';
+        });
+    </script>
+</body>
+</html>
