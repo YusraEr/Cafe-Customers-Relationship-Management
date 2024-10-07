@@ -146,22 +146,33 @@ document.addEventListener('DOMContentLoaded', function() {
 
     function initializeLoginPage() {
         const loginForm = document.querySelector('form');
+        let akun = ['admin', 'user', 'guest'];
+        let pass = ['admin', 'user', 'guest'];
+        const loginBtn = document.getElementById('loginBtn');
         
         if (loginForm) {
-            loginForm.addEventListener('submit', (e) => {
+            loginBtn.addEventListener('click', (e) => { 
                 e.preventDefault();
                 const email = document.getElementById('email').value;
                 const password = document.getElementById('password').value;
-                console.log('Attempting login for:', email);
+                if (akun.includes(email) && pass.includes(password)) {
+                    console.log('Login successful');
+                    alert('Login successful', 'success');
+                    window.location.href = 'home.html';
+                } else {
+                    console.log('Login failed');
+                    alert('Login failed', 'error');
+                }
             });
         }
 
-        const forgotPasswordLink = document.querySelector('a[href="#forgot-password"]');
+        const forgotPasswordLink = document.getElementById('forPass');
         
         if (forgotPasswordLink) {
             forgotPasswordLink.addEventListener('click', (e) => {
                 e.preventDefault();
                 console.log('Initiating password reset process...');
+                alert('Password reset link sent to your email', 'success');
             });
         }
     }

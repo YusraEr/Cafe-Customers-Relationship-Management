@@ -395,3 +395,45 @@ h2 {
 .form-section .radio-group label {
     margin-right: 15px;
 }
+        /* Main content */
+        .top-bar input[type="text"] {
+            width: 100%;
+            padding: 12px;
+            border-radius: 5px;
+            border: 1px solid #ced4da;
+        }
+
+        .profile .avatar {
+            width: 45px;
+            height: 45px;
+            background-color: #6c757d;
+            border-radius: 50%;
+            margin-left: 15px;
+        }
+
+        /* Customer Item */
+        .customer-item {
+            background-color: #f1f3f5;
+            padding: 15px;
+            border-radius: 50%;
+            width: 70px;
+            height: 70px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-bottom: 15px;
+            font-size: 0.85rem;
+            font-weight: 500;
+        }
+
+        .location-item {
+            background-color: #e9ecef;
+            padding: 20px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+            font-weight: 500;
+        }
+
+        .location-item small {
+            color: #6c757d;
+        }
