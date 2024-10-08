@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -74,7 +75,7 @@
             color: #ccc;
         }
 
-        .rating-stars input[type="radio"]:checked ~ label {
+        .rating-stars input[type="radio"]:checked~label {
             color: #ffc107;
         }
 
@@ -101,20 +102,25 @@
         }
     </style>
 </head>
+
 <body>
-    <div class="container-fluid">
+    <div class="container-fluid" style="background-color: #343a40;
+">
         <div class="row">
             <div class="sidebar">
                 <nav class="nav flex-column">
-                    <a class="nav-link" href="#" onclick="showSection('customers')"><i class="fas fa-users"></i> Customers</a>
-                    <a class="nav-link" href="#" onclick="showSection('feedback')"><i class="fas fa-comment"></i> Feedback</a>
-                    <a class="nav-link" href="#" onclick="showSection('history')"><i class="fas fa-history"></i> History</a>
+                    <a class="nav-link" href="#" onclick="showSection('customers')"><i class="fas fa-users"></i>
+                        Customers</a>
+                    <a class="nav-link" href="#" onclick="showSection('feedback')"><i class="fas fa-comment"></i>
+                        Feedback</a>
+                    <a class="nav-link" href="#" onclick="showSection('history')"><i class="fas fa-history"></i>
+                        History</a>
                     <a class="nav-link" href="Home.html"><i class="fas fa-sign-out-alt"></i> Home</a>
                 </nav>
             </div>
 
-            <div class="col content">
-                <h1 class="mb-4">Customer Feedback Management</h1>
+            <div id="meh" class="col content">
+                <h1 class="mx-0 mb-4 text-light">Customer Feedback Management</h1>
 
                 <div id="customers-section">
                     <input type="text" id="searchInput" class="form-control mb-4" placeholder="Search customers">
@@ -162,16 +168,18 @@
 
                         <div class="form-group">
                             <label for="comments">Comments</label>
-                            <textarea class="form-control" id="comments" rows="4" placeholder="Tell us about your experience..."></textarea>
+                            <textarea class="form-control" id="comments" rows="4"
+                                placeholder="Tell us about your experience..."></textarea>
                         </div>
 
-                        <button type="submit" class="btn btn-primary btn-block w-100 py-2 mt-3" onclick="submitFeedback()">Submit</button>
+                        <button type="submit" class="btn btn-primary btn-block w-100 py-2 mt-3"
+                            onclick="submitFeedback()">Submit</button>
                     </div>
                 </div>
 
-                <div id="history-section" class="feedback-history">
-                    <h2>Feedback History</h2>
-                    <div id="feedbackList"></div>
+                <div id="history-section" class="feedback-history container">
+                    <h2 class="text-light">Feedback History</h2>
+                    <div clas="text-light" id="feedbackList"></div>
                 </div>
             </div>
         </div>
@@ -185,7 +193,7 @@
 
     <script>
         // Check if user is logged in
-        document.addEventListener('DOMContentLoaded', function() {
+        document.addEventListener('DOMContentLoaded', function () {
             const currentUser = JSON.parse(localStorage.getItem('currentUser'));
             if (!currentUser) {
                 alert('Please login first');
@@ -234,18 +242,23 @@
             feedbackHistory.forEach((feedback, index) => {
                 const feedbackItem = document.createElement('div');
                 feedbackItem.innerHTML = `
-                    <h3>Feedback #${index + 1}</h3>
-                    <p><strong>Email:</strong> ${feedback.email}</p>
-                    <p><strong>Category:</strong> ${feedback.category}</p>
-                    <p><strong>Rating:</strong> ${feedback.rating}</p>
-                    <p><strong>Additional Services:</strong> ${feedback.takeaway ? 'Takeaway ' : ''}${feedback.delivery ? 'Delivery ' : ''}</p>
-                    <p><strong>Comments:</strong> ${feedback.comments}</p>
-                    <p><strong>Date:</strong> ${new Date(feedback.date).toLocaleString()}</p>
-                    <hr>
+        <div class="row blur-background me-4 mb-3 rounded-4" id="heerrr">
+                <div class="card-body">
+                    <h5 class="card-title text-light" style="font-size:40px; font-family: impact;">Feedback #${index + 1}</h5>
+                    <p class="card-text text-light">
+                    <br><strong>Email:</strong> ${feedback.email}
+                    <br><strong>Category:</strong> ${feedback.category}
+                    <br><strong>Rating:</strong> ${feedback.rating}
+                    <br><strong>Additional Services:</strong> ${feedback.takeaway ? 'Takeaway ' : ''}${feedback.delivery ? 'Delivery ' : ''}
+                    <br><strong>Comments:</strong> ${feedback.comments}
+                    <br><strong>Date:</strong> ${new Date(feedback.date).toLocaleString()}</p>
+                </div>
+        </div>
                 `;
                 feedbackList.appendChild(feedbackItem);
             });
         }
     </script>
 </body>
+
 </html>
