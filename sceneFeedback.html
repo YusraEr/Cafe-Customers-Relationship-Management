@@ -197,7 +197,7 @@
             const currentUser = JSON.parse(localStorage.getItem('currentUser'));
             if (!currentUser) {
                 alert('Please login first');
-                window.location.href = 'login.html';
+                window.location.href = 'index.html';
             } else {
                 document.getElementById('userEmail').value = currentUser.email;
             }
