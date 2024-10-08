@@ -129,7 +129,7 @@
                         <a class="nav-link text-light" href="#feedback">Feedback</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link text-light" href="login.html">Log Out</a>
+                        <a class="nav-link text-light" href="index.html">Log Out</a>
                     </li>
                 </ul>
             </div>
@@ -250,7 +250,7 @@
             const currentUser = JSON.parse(localStorage.getItem('currentUser'));
             if (!currentUser) {
                 alert('Please login first');
-                window.location.href = 'login.html';
+                window.location.href = 'index.html';
             }
         });
 
@@ -259,7 +259,7 @@
             e.preventDefault();
             localStorage.removeItem('currentUser');
             alert('You have been logged out.');
-            window.location.href = 'login.html';
+            window.location.href = 'index.html';
         });
     </script>
 </body>
